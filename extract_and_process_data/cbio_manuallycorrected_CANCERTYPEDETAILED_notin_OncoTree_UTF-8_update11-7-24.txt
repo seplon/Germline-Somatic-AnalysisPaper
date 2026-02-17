@@ -1,0 +1,101 @@
+Cancer_Type_Detailed	Manually_corrected_Cancer_Type_Detailed	value	Why
+Liver Hepatocellular Carcinoma	Hepatocellular Carcinoma	1131	liver' unnecessary
+Gastric Adenocarcinoma	Stomach Adenocarcinoma	850	gastric alone absent in OT
+Pilocytic astrocytoma	Pilocytic Astrocytoma	105	A' capitalized
+Chromophobe Renal Cell CarcinomaÂ	Chromophobe Renal Cell Carcinoma	98	removed special characters
+Pediatric Low Grade Gliomas	Low-Grade Glioma	93	"removed pediatric, added hyphen and removed plural"
+Infiltrating Ductal Carcinoma	Ductal Carcinoma	82	"removed infiltrating, since this is breast cancer- more supporting evidence that shows up 3 times 1x in BRCA1 BRCA2 PTEN which are breast cancer genes"
+Breast Invasive Carcinoma (NOS)	Breast Invasive Carcinoma	77	removed NOS
+Acute Lymphoid Leukemia	Leukemia/Lymphoma	73	Lymphoid should come under Lymphoid parent so just put a string that will get that output
+Castration-Resistant Prostate Cancer	Prostate	70	Location is ultimatrely prostate
+Small Bowel Adenocarcinoma	Small Bowel	57	Location is ultimatrely small bowel so under Bowel
+Undifferentiated Pleomorphic Sarcoma Malignant Fibrous Histiocytoma	Undifferentiated Pleomorphic Sarcoma/Malignant Fibrous Histiocytoma	55	added slash to match string in OT
+Wilms' tumors	Wilms' Tumor	51	T' capitalized and removed 's'
+Soft Tissue Sarcoma Other	Soft Tissue	49	Location is ultimatrely soft tissue
+Liver Hepatocellular Carcinoma plus Intrahepatic Cholangiocarcinoma	Hepatocellular Carcinoma plus Intrahepatic Cholangiocarcinoma	47	removed 'liver' to match string in OT
+Head and Neck Squamous Cell CarcinomaÃŠ	Head and Neck Squamous Cell Carcinoma	40	removed special characters
+Follicular lymphoma	Follicular Lymphoma	36	L' capitalized
+Urothelial Carcinoma Other	Urothelial Carcinoma	36	Location is ultimately urothelial
+Melanoma Other	Melanoma	32	Other means nothing
+Acute myeloid leukemias	Acute Myeloid Leukemia	30	"removed 's', capitalized 'M' and 'L'"
+Head and Neck Carcinoma Other	Head and Neck Carcinoma	27	Other means nothing
+Pediatric High Grade Gliomas	High-Grade Glioma	25	"removed pediatric, added hyphen and removed plural"
+Bone Sarcoma Other	Osteosarcoma	25	Location is ultimately Bone
+Endometrial Adenocarcinoma	Endometrial	24	Location is ultimately Uterus
+Ewing's sarcoma	Ewing Sarcoma	24	removed apostrophe s to match string in OT
+Polycythemia vera	Polycythemia Vera	23	V' capitalized
+MiT family translocation renal cell carcinoma	Translocation-Associated Renal Cell Carcinoma	22	Location is ultimately Kidney
+Ovarian Serous Carcinoma	Serous Ovarian Cancer	21	string in OT to match
+Papillary Throid Carcinoma	Papillary Thyroid	21	added 'y' to Throid-spelling error maybe And removed Carcinoma to match string in OT
+Unclassified Kidney Renal Cell Carcinoma	Unclassified Renal Cell Carcinoma	21	don’t need 'Kidney'
+Atypical teratoid/rhabdoid tumor	Atypical Teratoid/Rhabdoid Tumor	19	Capitalized 1st alphabets
+Breast Carcinoma Other	Breast Carcinoma	18	Other means nothing
+Fibroblastic Myofibroblastic Tumor	Myofibroblastic Tumor	18	Could be Fibroblastic or Myofibroblastic- but doesn’t matter because they come under so many parent tissue types that these samples will be filtered out anyway
+Papillary Kidney Renal Cell Carcinoma	Papillary Renal Cell Carcinoma	17	don’t need 'Kidney'
+Myxoid Fibrosarcoma	Fibromyxoid Sarcoma	17	google search to see if both strings refer to the same cancer and put down string in OT
+Burkitt lymphoma	Burkitt Lymphoma	17	Capitalized 1st alphabets
+Gastric Carcinoma Other	Esophagogastric Adenocarcinoma	16	Location is ultimately stomach
+Acute myeloid leukemia	Acute Myeloid Leukemia	16	Capitalized 1st alphabets
+Mucinous Liposarcoma	Liposarcoma	16	Location is ultimately soft tissue
+Well Differentiated Liposarcoma	Well-Differentiated Liposarcoma	12	needed hyphen to match string in OT
+Non Small Cell Lung Cancer Other	Non-Small Cell Lung Cancer	11	needed hyphen to match string in OT and Other means nothing
+Ovarian Adenocarcinoma	Ovarian	11	Location is ultimately ovary
+Pancreatic Cancer Other	Pancreatic	11	Location is ultimately pancreas
+Esophageal Carcinoma Other	Esophageal	11	Location is ultimately esophagus
+Undifferentiated Sarcoma	Undifferentiated Sarcoma	10	either 1 alone come under multiple parents so skip
+Kidney Renal Cell Carcinoma Other	Renal Cell Carcinoma	10	don’t need 'Kidney' and Other means nothing
+Gallbladder Carcinoma Other	Gallbladder Carcinoma	10	Other means nothing
+Gastric Neuroendocrine Tumor	Gastrointestinal Neuroendocrine Tumor	9	edited to match string in OT but will get filtered out since multiple parents
+Adrenocortical carcinoma	Adrenocortical Carcinoma	9	Capitalized 1st alphabets
+Colorectal Neuroendocrine Tumor	Colorectal	8	Location is ultimatrely Bowel
+Goblet Cell Carcinoid of the Appendix	Goblet Cell	8	sufficient to match string In OT for this tumor type
+Unclassified Sarcoma	Unclassified Sarcoma	8	either 1 alone come under multiple parents so skip
+Malignant Small Cell Tumor	Malignant Small Cell Tumor	8	either 1 alone come under multiple parents so skip
+Hepatocellular carcinoma	Hepatocellular Carcinoma	8	Capitalized 1st alphabets
+Low grade Fibromyxoid Sarcoma	Low-Grade Fibromyxoid Sarcoma	7	needed hyphen to match string in OT and capitalized 1st alphabets
+Gallbladder Neuroendocrine Tumor	Gallbladder	6	Location is ultimately Biliary
+Esophageal Adenosquamous Carcinoma	Esophageal	5	Location is ultimately esophagus
+Thyroid Carcinoma Other	Thyroid	5	Location is ultimately Thyroid and code will take care of not includting parathyroid
+Gallbladder Adenosquamous Carcinoma	Gallbladder	5	Location is ultimately Biliary
+Colorectal Carcinoma Other	Colorectal	5	Location is ultimatrely Bowel
+Chromophobe Kidney Renal Cell Carcinoma	Chromophobe Renal Cell Carcinoma	5	don’t need 'Kidney'
+Teratoma with Malignant Transformation	Teratoma with Malignant Transformation	5	not in 41 gene list and not easy solution so skip
+Inflammatory myofibroblastic tumor	Inflammatory Myofibroblastic Tumor	4	Capitalized 1st alphabets
+Small Bowel Neuroendocrine Tumor	Small Bowel	4	Location is ultimatrely Bowel
+Uterine Corpus Endometrial Carcinoma Other	UCEC	4	string in OT to match
+Infiltrating Lobular Carcinoma	Lobular Carcinoma	4	string in OT to match
+Ovarian Granulosa Cell Tumor	Granulosa Cell Tumor	4	string in OT to match
+Medullary Thyroid Carcinoma	Medullary Thyroid Cancer	4	string in OT to match
+Ovarian Carcinoma Other	Ovarian Carcinoma	4	Other means nothing
+"Rhabdomyosarcoma, Alveolar subtype"	Alveolar Rhabdomyosarcoma	3	string in OT to match
+Mixed Carcinoma	Mixed Cancer Types	3	string in OT to match
+Esophageal Neuroendocrine Tumor	Esophageal	3	Location is ultimately esophagus
+Intraductal Papillary Mucinous Neoplasm with an associated Invasive Carcinoma	Intraductal Papillary Mucinous Neoplasm	3	string in OT to match
+Extrarenal Rhabdoid Tumor	Extrarenal Rhabdoid Tumor	3	either 1 alone come under multiple parents so skip
+Diffse large B-cell lymphoma	Diffuse Large B-Cell Lymphoma	2	string in OT to match
+Follicular Thyroid Carcinoma	Follicular Thyroid	2	string in OT to match
+Breast Microinvasive Carcinoma	Invasive Breast Carcinoma	2	string in OT to match
+Optic nerve glioma	"Glioma,"	2	string in OT to match
+Anaplastic ependymoma	Anaplastic Ependymoma	2	Capitalized 1st alphabets
+Anaplastic pleomorphic xanthoastrocytoma	Anaplastic Pleomorphic Xanthoastrocytoma	1	Capitalized 1st alphabets
+Non-seminomatous Mixed Germ Cell Tumor	Non-Seminomatous Germ Cell Tumor	1	string in OT to match
+Pilomatrix carcinoma	Pilomatrix carcinoma	1	cannot find a match so skip only 1 var in APC will be lost
+Seminal Vesicle Carcinoma	Seminal Vesicle Carcinoma	1	cannot find a match so skip only 1 var in TP53 will be lost
+Anaplastic medulloblastoma	Anaplastic Medulloblastoma	1	Capitalized 1st alphabets
+Mucoepidermoid carcinoma of the lung	Mucoepidermoid Carcinoma of the Lung	1	Capitalized 1st alphabets to match string in OT
+Pineal Germ Cell Tumor	Pineal 	1	Location is ultimately CNS/Brain
+Infiltrating Tubular Carcinoma	Infiltrating Tubular Carcinoma	1	cannot find a match so skip not in 41 genes
+Small round blue cell tumor/ Ewing Sarcoma	Small round blue cell tumor/ Ewing Sarcoma	1	cannot find a match so skip not in 41 genes
+Plexiform fibrohistiocytic tumor	Plexiform fibrohistiocytic tumor	1	cannot find a match so skip not in 41 genes
+Pleuropulmonary blastoma	Pleuropulmonary Blastoma	1	Capitalized 1st alphabets
+Hodgkin Lymphoma-like PTLD	Hodgkin Lymphoma-like PTLD	1	cannot find a match so skip not in 41 genes
+Nested stromal epithelial tumor of the liver	Nested stromal epithelial tumor of the liver	1	cannot find a match so skip not in 41 genes
+Nephroblastomatosis	Nephroblastomatosis	1	cannot find a match so skip not in 41 genes
+Glioblastoma multiforme	Glioblastoma Multiforme	1	Capitalized 1st alphabets
+Plexiform Schwannoma	Plexiform Schwannoma	1	cannot find a match so skip not in 41 genes
+Mucinous Adenocarcinoma Lymph Node	Mucinous Adenocarcinoma Lymph Node	1	cannot find a match so skip not in 41 genes
+"Non-Seminomatous Germ Cell Tumor, predominantly yolk sac type"	"Non-Seminomatous Germ Cell Tumor, predominantly yolk sac type"	1	cannot find a match so skip not in 41 genes
+Congenital Fibrosarcoma	Congenital Fibrosarcoma	1	cannot find a match so skip not in 41 genes
+Medullary Breast Carcinoma	Invasive Breast Carcinoma	1	Location is ultimately Breast
+Low-Grade Glioma (NOS)	Low-Grade Glioma	1	string in OT to match
+Pilomyxoid astrocytoma	Pilomyxoid Astrocytoma	1	Capitalized 1st alphabets
