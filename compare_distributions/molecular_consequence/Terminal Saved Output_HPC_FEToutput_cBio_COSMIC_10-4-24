@@ -1,0 +1,443 @@
+Last login: Fri Sep 13 15:27:40 on ttys003
+(base) suhasinilulla@suhasinis-mbp ~ % ssh slulla@mab.dldcc.bcm.edu
+
+            _____                    _____                    _____          
+           /\    \                  /\    \                  /\    \         
+          /::\____\                /::\    \                /::\    \        
+         /::::|   |               /::::\    \              /::::\    \       
+        /:::::|   |              /::::::\    \            /::::::\    \      
+       /::::::|   |             /:::/\:::\    \          /:::/\:::\    \     
+      /:::/|::|   |            /:::/__\:::\    \        /:::/__\:::\    \    
+     /:::/ |::|   |           /::::\   \:::\    \      /::::\   \:::\    \   
+    /:::/  |::|___|______    /::::::\   \:::\    \    /::::::\   \:::\    \  
+   /:::/   |::::::::\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\ ___\ 
+  /:::/    |:::::::::\____\/:::/  \:::\   \:::\____\/:::/__\:::\   \:::|    |
+  \::/    / ~~~~~/:::/    /\::/    \:::\  /:::/    /\:::\   \:::\  /:::|____|
+   \/____/      /:::/    /  \/____/ \:::\/:::/    /  \:::\   \:::\/:::/    / 
+               /:::/    /            \::::::/    /    \:::\   \::::::/    /  
+              /:::/    /              \::::/    /      \:::\   \::::/    /   
+             /:::/    /               /:::/    /        \:::\  /:::/    /    
+            /:::/    /               /:::/    /          \:::\/:::/    /     
+           /:::/    /               /:::/    /            \::::::/    /      
+          /:::/    /               /:::/    /              \::::/    /       
+          \::/    /                \::/    /                \::/____/        
+           \/____/                  \/____/                  ~~              
+                                                                           
+(slulla@mab.dldcc.bcm.edu) Password: 
+Last login: Wed May 22 16:49:33 2024 from suhasinis-mbp.ad.bcm.edu
+
+################################################################################
+
+Publication Acknowledgment (mab):
+
+Data analysis was performed on the HPC cluster that is managed by the Biostatistics and Informatics Shared Resource (BISR) and supported by an NCI P30-CA125123 and Institutional funds from the Dan L Duncan Comprehensive Cancer Center and Baylor College of Medicine. 
+
+################################################################################
+
+[slulla@mab ~]$ srun --tasks 1 --cpus-per-task 4 --mem=64G --time 24:00:00 --pty bash
+[slulla@compute-9-12 ~]$ cd /project/plon
+[slulla@compute-9-12 plon]$ ls -la
+total 64
+drwxrws---   3 slulla plon 2048 Feb 14  2024 .
+drwxr-xr-x 100 root   root    0 Sep 17 14:13 ..
+drwxr-sr-x   3 slulla plon 2048 Feb 14  2024 Suhasini_Lulla
+[slulla@compute-9-12 plon]$ cd Suhasini_Lulla
+[slulla@compute-9-12 Suhasini_Lulla]$ cd GL_S_pipeline_FET_Feb2024/
+[slulla@compute-9-12 GL_S_pipeline_FET_Feb2024]$ ls
+Python_df_gl_s_allgte5.txt
+[slulla@compute-9-12 GL_S_pipeline_FET_Feb2024]$ module avail
+
+-------------------------------------------------------------------- /share/apps/modulefiles ---------------------------------------------------------------------
+   7zip/23.01                 boost/1.60.0                 gnu/automake/1.16.5  (D)    java/1.8.0u71         (D)    regenie/3.2.5.2
+   R/3.1.1                    boost/1.77.0                 gnu/binutils/2.42           kentutils/436                rfmix/2.03
+   R/4.0.3                    boost/1.80.0          (D)    gnu/bison/3.7.6             king/2.3.2                   rmats/4.0.2
+   R/4.0.4                    bowtie/1.3.1                 gnu/bison/3.8        (D)    komb/1.0                     rsem/1.3.3
+   R/4.0.5                    bowtie2/2.5.1                gnu/datamash/1.8            kraken2/2.1.2                ruby/3.2.2
+   R/4.1.3                    bwa/0.7.17                   gnu/gcc/9.3.0               kraken2/2.1.3         (D)    salmon/1.10.0
+   R/4.2.0                    canu/2.2                     gnu/gcc/10.2.0              lapack/3.11                  samtools/0.1.19
+   R/4.3.2             (D)    celldancer/1.1.7             gnu/gcc/11.3.0              libyaml/0.2.5                samtools/1.15.1
+   admixture/1.3.0            cellranger-arc/2.0.2         gnu/gcc/12.2.0       (D)    matlab/R2023b                samtools/1.17     (D)
+   anaconda2/2019.07          cellranger-atac/2.1.0        gnu/gettext/0.22            matlab/runtime/R2023b        shapeit/r904
+   anaconda2/2019.10   (D)    cellranger/6.1.2             gnu/gsl/2.7.1               megahit/1.2.9                singularity/3.8.7
+   anaconda3/4.2.0            cellranger/7.0.1             gnu/libtool/2.4.6           mhaptools/1.2                singularity/4.0.3 (D)
+   anaconda3/4.3.1            cellranger/8.0.0      (D)    gnu/make/4.40               mono/6.12.0.199              sos/0.24.5
+   anaconda3/5.0.1            cmake/3.23.3                 gnu/mp/6.2.0                msfragger/3.8                spaceranger/2.0.0
+   anaconda3/2019.07          cufflinks/2.2.1              gnu/mpc/1.1.0               nanoplot/1.41.0              spaceranger/2.1.0
+   anaconda3/2019.10          cutadapt/4.4                 gnu/mpfr/4.1.0              ncbi/blast/2.12.0            spaceranger/3.0.0 (D)
+   anaconda3/2020.11          eigen/3.4.0                  go/1.19.2                   ncbi/blast/2.13.0     (D)    star/2.6.1d
+   anaconda3/2021.05          emacs/28.1                   go/1.21.6            (D)    ncbi/sratoolkit/3.0.0        star/2.7.10b      (D)
+   anaconda3/2021.11          eman2/2.91                   gossamer/1.0.0              ncbi/sratoolkit/3.1.1 (D)    subread/1.6.4
+   anaconda3/2022.05          ensembl/vep/107.0            hdf5/1.14.3                 openblas/0.3.24              texlive/2023
+   anaconda3/2023.03-1 (D)    fastqc/0.12.1                hisat2/2.2.1                openmpi/4.1.6                tophat/2.1.1
+   awscli/2.13.26             fftw/3.3.10                  htslib/1.14                 pandoc/2.19.2                trim_galore/0.6.7
+   bamtools/2.5.2             flare/0.5.1                  htslib/1.15.1               perl/5.18.2                  trimmomatic/0.39
+   bcftools/1.15.1            fragpipe/20.0                htslib/1.17          (D)    perl/5.32.1                  tsnad/2.0.1
+   bcftools/1.17       (D)    gatk/4.2.0.0                 imagemagick/7.1.0.57        perl/5.40.0           (D)    vartrix/1.1.22
+   bcl2fastq2/2.20            gatk/4.3.0.0          (D)    impute5/1.1.5               pharmcat/2.4.0               vcftools/0.1.16
+   beagle/5.4                 gd/2.3.3                     ionquant/1.9.8              picard/2.1.0                 vt/0.57721
+   bedtools/2.31.1            geos/3.6.5                   jags/4.3.2                  plink/1.90/beta-7
+   bgen/1.1.7                 gnu/autoconf/2.71            java/jdk-18.0.1.1           plink/2.0/alpha-4.1
+   bismark/0.24.1             gnu/automake/1.15            java/1.7.0u79               rclone/1.62.2
+
+  Where:
+   D:  Default Module
+
+Use "module spider" to find all possible modules.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+
+
+[slulla@compute-9-12 GL_S_pipeline_FET_Feb2024]$ module load R/4.3.2
+[slulla@compute-9-12 GL_S_pipeline_FET_Feb2024]$ R
+
+R version 4.3.2 (2023-10-31) -- "Eye Holes"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> df_SUFU_GL_S_COSMIC<-data.frame("germline"=c(9,14,22,64),"somatic"=c(4,8,7,9), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift"))
+> df_SUFU_GL_S_COSMIC
+                germline somatic
+splice_acceptor        9       4
+splice_donor          14       8
+stop_gained           22       7
+frameshift            64       9
+> fisher.test(df_SUFU_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_SUFU_GL_S_COSMIC
+p-value = 0.04475
+alternative hypothesis: two.sided
+
+> df_SMARCB1_GL_S_COSMIC
+                 germline somatic
+splice_acceptor         8       0
+splice_donor           13       0
+stop_gained            19       0
+frameshift             23      28
+inframe_deletion        9       0
+missense               33       0
+> fisher.test(df_SMARCB1_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_SMARCB1_GL_S_COSMIC
+p-value = 1.243e-11
+alternative hypothesis: two.sided
+
+> df_SDHA_GL_S_COSMIC<-data.frame("germline"=c(37,48,131,148,27,63),"somatic"=c(2,2,14,4,1,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshif> 
+> df_SDHA_GL_S_COSMIC
+                germline somatic
+splice_acceptor       37       2
+splice_donor          48       2
+stop_gained          131      14
+frameshift           148       4
+start_lost            27       1
+missense              63       0
+> fisher.test(df_SDHA_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_SDHA_GL_S_COSMIC
+p-value = 0.02711
+alternative hypothesis: two.sided
+
+> df_PALB2_GL_S_COSMIC<-data.frame("germline"=c(95,110,761,1499),"somatic"=c(3,2,32,39), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift "))
+> df_PALB2_GL_S_COSMIC
+                germline somatic
+splice_acceptor       95       3
+splice_donor         110       2
+stop_gained          761      32
+frameshift          1499      39
+> fisher.test(df_PALB2_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_PALB2_GL_S_COSMIC
+p-value = 0.2191
+alternative hypothesis: two.sided
+> df_FLCN_GL_S_COSMIC<-data.frame("germline"=c(59,56,156,362,20,12),"somatic"=c(2,0,8,42,0,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift ",”inframe_deletion","missense”))
+Error: unexpected input in "df_FLCN_GL_S_COSMIC<-data.frame("germline"=c(59,56,156,362,20,12),"somatic"=c(2,0,8,42,0,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift ",”"
+> df_FLCN_GL_S_COSMIC<-data.frame("germline"=c(59,56,156,362,20,12),"somatic"=c(2,0,8,42,0,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift ","inframe_deletion","missense"))
+> df_FLCN_GL_S_COSMIC
+                 germline somatic
+splice_acceptor        59       2
+splice_donor           56       0
+stop_gained           156       8
+frameshift            362      42
+inframe_deletion       20       0
+missense               12       0
+> fisher.test(df_FLCN_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_FLCN_GL_S_COSMIC
+p-value = 0.009065
+alternative hypothesis: two.sided
+> df_FH_GL_S_COSMIC<-data.frame("germline"=c(47,52,118,206,26,13,350),"somatic"=c(2,2,7,4,0,0,2), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift ","inframe_insertion","inframe_deletion","missense"))
+> df_FH_GL_S_COSMIC
+                  germline somatic
+splice_acceptor         47       2
+splice_donor            52       2
+stop_gained            118       7
+frameshift             206       4
+inframe_insertion       26       0
+inframe_deletion        13       0
+missense               350       2
+> fisher.test(df_FH_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_FH_GL_S_COSMIC
+p-value = 0.01882
+alternative hypothesis: two.sided
+
+> df_CEBPA_GL_S_COSMIC<-data.frame("germline"=c(8,20,1,0,1,1),"somatic"=c(20,542,80,11,6,19), row.names=c("stop_gained","frameshift","inframe_insertion","inframe_deletion","protein_altering",">=50bp_indel"))
+> df_CEBPA_GL_S_COSMIC
+                  germline somatic
+stop_gained              8      20
+frameshift              20     542
+inframe_insertion        1      80
+inframe_deletion         0      11
+protein_altering         1       6
+>=50bp_indel             1      19
+> fisher.test(df_CEBPA_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_CEBPA_GL_S_COSMIC
+p-value = 7.648e-05
+alternative hypothesis: two.sided
+
+> df_BMPR1A_GL_S_COSMIC<-data.frame("germline"=c(19,19,96,134,9,27),"somatic"=c(2,5,9,4,0,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","start_lost","missense"))
+> df_BMPR1A_GL_S_COSMIC
+                germline somatic
+splice_acceptor       19       2
+splice_donor          19       5
+stop_gained           96       9
+frameshift           134       4
+start_lost             9       0
+missense              27       0
+> fisher.test(df_BMPR1A_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_BMPR1A_GL_S_COSMIC
+p-value = 0.01464
+alternative hypothesis: two.sided
+
+> df_BARD1_GL_S_COSMIC<-data.frame("germline"=c(67,59,276,383,8),"somatic"=c(1,0,11,19,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",",">=50bp_indel"))
+Error: unexpected symbol in "df_BARD1_GL_S_COSMIC<-data.frame("germline"=c(67,59,276,383,8),"somatic"=c(1,0,11,19,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",",">=50bp_indel"
+> df_BARD1_GL_S_COSMIC<-data.frame("germline"=c(67,59,276,383,8),"somatic"=c(1,0,11,19,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",",">=50bp_indel"))
+Error: unexpected symbol in "df_BARD1_GL_S_COSMIC<-data.frame("germline"=c(67,59,276,383,8),"somatic"=c(1,0,11,19,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",",">=50bp_indel"
+> df_BARD1_GL_S_COSMIC<-data.frame("germline"=c(67,59,276,383,8),"somatic"=c(1,0,11,19,0), row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",">=50bp_indel"))
+> df_BARD1_GL_S_COSMIC
+                germline somatic
+splice_acceptor       67       1
+splice_donor          59       0
+stop_gained          276      11
+frameshift           383      19
+>=50bp_indel           8       0
+> fisher.test(df_BARD1_GL_S_COSMIC)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_BARD1_GL_S_COSMIC
+p-value = 0.4079
+alternative hypothesis: two.sided
+
+> df_TP63_GL_S_cbio<-data.frame("germline"=c(1,10,7,116),"somatic"=c(8,21,8,4), row.names=c("splice_acceptor","stop_gained","frameshift","missense"))
+> df_TP63_GL_S_cbio
+                germline somatic
+splice_acceptor        1       8
+stop_gained           10      21
+frameshift             7       8
+missense             116       4
+> fisher.test(df_TP63_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_TP63_GL_S_cbio
+p-value < 2.2e-16
+alternative hypothesis: two.sided
+
+> df_SDHA_GL_S_cbio<-data.frame("germline"=c(37,48,131,148,27,63),"somatic"=c(6,5,11,11,4,0),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","start_lost","missense"))
+> df_SDHA_GL_S_cbio
+                germline somatic
+splice_acceptor       37       6
+splice_donor          48       5
+stop_gained          131      11
+frameshift           148      11
+start_lost            27       4
+missense              63       0
+> fisher.test(df_SDHA_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_SDHA_GL_S_cbio
+p-value = 0.03347
+alternative hypothesis: two.sided
+
+> df_PALB2_GL_S_cbio<-data.frame("germline"=c(95,110,761,1499,15),"somatic"=c(7,3,37,43,1),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","start_lost"))
+> df_PALB2_GL_S_cbio
+                germline somatic
+splice_acceptor       95       7
+splice_donor         110       3
+stop_gained          761      37
+frameshift          1499      43
+start_lost            15       1
+> fisher.test(df_PALB2_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_PALB2_GL_S_cbio
+p-value = 0.03665
+alternative hypothesis: two.sided
+
+> df_MSH6_GL_S_cbio<-data.frame("germline"=c(105,99,835,2174,45,234),"somatic"=c(2,6,33,93,0,2),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","inframe_deletion","missense"))
+> df_MSH6_GL_S_cbio
+                 germline somatic
+splice_acceptor       105       2
+splice_donor           99       6
+stop_gained           835      33
+frameshift           2174      93
+inframe_deletion       45       0
+missense              234       2
+> fisher.test(df_MSH6_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_MSH6_GL_S_cbio
+p-value = 0.04772
+alternative hypothesis: two.sided
+
+> df_FLCN_GL_S_cbio<-data.frame("germline"=c(59,56,156,362,4,20,12),"somatic"=c(3,3,13,60,2,0,0),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","start_lost","inframe_deletion","missense"))
+> df_FLCN_GL_S_cbio
+                 germline somatic
+splice_acceptor        59       3
+splice_donor           56       3
+stop_gained           156      13
+frameshift            362      60
+start_lost              4       2
+inframe_deletion       20       0
+missense               12       0
+> fisher.test(df_FLCN_GL_S_cbio)
+Error in fisher.test(df_FLCN_GL_S_cbio) : 
+  FEXACT error 7(location). LDSTP=18510 is too small for this problem,
+  (pastp=31.4657, ipn_0:=ipoin[itp=219]=186, stp[ipn_0]=33.851).
+Increase workspace or consider using 'simulate.p.value=TRUE'
+> df_FH_GL_S_cbio<-data.frame("germline"=c(47,52,118,206,26,13,350),"somatic"=c(3,2,10,9,0,0,1),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",","inframe_insertion","inframe_deletion","missense"))
+Error: unexpected symbol in "df_FH_GL_S_cbio<-data.frame("germline"=c(47,52,118,206,26,13,350),"somatic"=c(3,2,10,9,0,0,1),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",","inframe_insertion"
+> df_FH_GL_S_cbio<-data.frame("germline"=c(47,52,118,206,26,13,350),"somatic"=c(3,2,10,9,0,0,1),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","inframe_insertion","inframe_deletion","missense"))
+> df_FH_GL_S_cbio
+                  germline somatic
+splice_acceptor         47       3
+splice_donor            52       2
+stop_gained            118      10
+frameshift             206       9
+inframe_insertion       26       0
+inframe_deletion        13       0
+missense               350       1
+> fisher.test(df_FH_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_FH_GL_S_cbio
+p-value = 0.0001736
+alternative hypothesis: two.sided
+
+> df_CYLD_GL_S_cbio<-data.frame("germline"=c(2,2,15,19),"somatic"=c(8,9,23,29),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift"))
+> df__GL_S_cbio
+> 
+> df_CYLD_GL_S_cbio
+                germline somatic
+splice_acceptor        2       8
+splice_donor           2       9
+stop_gained           15      23
+frameshift            19      29
+> fisher.test(df_CYLD_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_CYLD_GL_S_cbio
+p-value = 0.4269
+alternative hypothesis: two.sided
+
+> df_BMPR1A_GL_S_cbio<-data.frame("germline"=c(19,19,96,134,9,27),"somatic"=c(5,4,12,20,1,0),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","start_lost","missense"))
+> df_BMPR1A_GL_S_cbio
+                germline somatic
+splice_acceptor       19       5
+splice_donor          19       4
+stop_gained           96      12
+frameshift           134      20
+start_lost             9       1
+missense              27       0
+> fisher.test(df_BMPR1A_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_BMPR1A_GL_S_cbio
+p-value = 0.1797
+alternative hypothesis: two.sided
+
+> df_BARD1_GL_S_cbio<-data.frame("germline"=c(67,59,276,383,8),"somatic"=c(3,5,23,28,0),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift",">=50bp_indel"))
+> df_BARD1_GL_S_cbio
+                germline somatic
+splice_acceptor       67       3
+splice_donor          59       5
+stop_gained          276      23
+frameshift           383      28
+>=50bp_indel           8       0
+> fisher.test(df_BARD1_GL_S_cbio)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_BARD1_GL_S_cbio
+p-value = 0.8845
+alternative hypothesis: two.sided
+
+> df_FLCN_GL_S_cbio<-data.frame("germline"=c(59,56,156,362,4,20,12),"somatic"=c(3,3,13,60,2,0,0),row.names=c("splice_acceptor","splice_donor","stop_gained","frameshift","start_lost","inframe_deletion","missense"))
+> df_FLCN_GL_S_cbio
+                 germline somatic
+splice_acceptor        59       3
+splice_donor           56       3
+stop_gained           156      13
+frameshift            362      60
+start_lost              4       2
+inframe_deletion       20       0
+missense               12       0
+> fisher.test(df_FLCN_GL_S_cbio, workspace=2e+08)
+
+	Fisher's Exact Test for Count Data
+
+data:  df_FLCN_GL_S_cbio
+p-value = 0.007576
+alternative hypothesis: two.sided
+
+> exit
+Error: object 'exit' not found
+> q()
+Save workspace image? [y/n/c]: y
+[slulla@compute-9-12 GL_S_pipeline_FET_Feb2024]$ exit
+exit
+[slulla@mab ~]$ exit
+logout
+Connection to mab.dldcc.bcm.edu closed.
+(base) suhasinilulla@suhasinis-mbp ~ % pwd
+/Users/suhasinilulla
+(base) suhasinilulla@suhasinis-mbp ~ % 
