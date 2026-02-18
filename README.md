@@ -11,7 +11,7 @@
 ### compare_distrubitions
 - variant_identity (Figure 2)
 - molecular_consequence (Figure 4)
-   tissue_type (Figure 5)
+- tissue_type (Figure 5)
 - cdna_location (Figure 6, 7)
 
 ## Contact: 
