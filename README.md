@@ -3,14 +3,14 @@
 ## Directory structure:
 - Individual Jupyter notebooks or R scripts for each sub-analysis 
 - Cell outputs from analysis during manuscript preparation are retained
-- Instructions to reuse code is included at the top of respective notebooks/files
+- Instructions to reuse code are included at the top of respective notebooks/files
 
 ### extract_and_process_data (Figure 1, 3)
 - Codes used to extract, filter, and harmonize data from ClinVar, cBioPortal, and COSMIC
 
 ### compare_distrubitions
 - variant_identity (Figure 2)
-- molecular_consequence (Figure 4, but tissue type: Figure 5)
+- molecular_consequence (Figure 4, by tissue type: Figure 5)
 - cdna_location (Figure 6, 7)
 
 ## Contact: 
